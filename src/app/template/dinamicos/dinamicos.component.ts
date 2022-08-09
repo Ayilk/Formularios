@@ -34,6 +34,9 @@ export class DinamicosComponent  {
            this.miFormulario?.controls['nombre']?.invalid
   }
 
+  eliminar(index: number){
+    this.persona.favoritos.splice(index, 1)
+  }
   guardar() {
     console.log('Formulario posteado')
   }
