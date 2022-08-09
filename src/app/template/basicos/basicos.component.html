@@ -33,13 +33,14 @@
                 <div class="col-sm-9">
                     <input type="number"
                            class="form-control"
-                           ngModel
+                          ngModel
                            name="precio"
-                           placeholder="Precio del Producto"
-                           required>
+                           placeholder="Precio del producto"
+                           required
+                           min="0">
 
                     <span class="form-text text-danger"
-                           *ngIf="precioValido()">
+                          *ngIf="precioValido()">
                            El precio debe ser mayor o igual a $0
                     </span>
                     
@@ -54,7 +55,10 @@
                            class="form-control"
                            ngModel
                            name="existencias"
-                           placeholder="Existencias  del Producto">
+                           customMin
+                           [minimo]="0"
+                           placeholder="Existencias  del Producto"
+                           required>
                     
                 </div>
             </div>
@@ -98,6 +102,9 @@
         <span>Value</span>
         <p></p>
         <pre>{{miFormulario.value | json }}</pre>
+
+        <!-- <span>CustomDirective</span>
+        <pre>{{miFormulario.controls.existencias?.errors | json}}</pre> -->
 
     </div>
 </div>
