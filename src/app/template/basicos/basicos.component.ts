@@ -17,10 +17,15 @@ export class BasicosComponent implements OnInit {
   }
   
   nombreValido(): boolean{
-    return this.miFormulario?.controls['producto']?.invalid && 
-    this.miFormulario?.controls['producto']?.touched
+    return this.miFormulario?.controls['producto']?.touched  && 
+    this.miFormulario?.controls['producto']?.value <0
   }
 
+
+  precioValido(): boolean{
+    return this.miFormulario?.controls['precio']?.invalid && 
+    this.miFormulario?.controls['precio']?.touched
+  }
   guardar(){
     console.log(this.miFormulario)
   }
