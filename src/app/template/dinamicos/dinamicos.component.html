@@ -10,7 +10,7 @@
         <label class="col-sm-3 col-form-label">Nombre</label>
         <div class="col-sm-9">
             <input class="from-control"
-                   ngModel
+                   [ngModel]="persona.nombre"
                    name="nombre"
                    placeholder="Nombre de la persona"
                    minlength="3"
@@ -44,12 +44,12 @@
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Favoritos</label>
         <div class="col-sm-9">
-            <input class="from-control">                  
-            <input class="form-control mb-1">       
-            <input class="form-control mb-1">  
-            <input class="form-control mb-1">  
-            <input class="form-control mb-1">  
-            <input class="form-control mb-1">   
+            <input *ngFor="let juego of persona.favoritos; let i = index"
+                   [(ngModel)]="juego.nombre"
+                   name="favorito_{{ i }}"
+                   class="from-control"
+                   required>                  
+            
         </div>
     </div>
 
@@ -66,3 +66,6 @@
     </div>
 
 </form>
+
+<span>Persona</span>
+<pre>{{persona | json}}</pre>
