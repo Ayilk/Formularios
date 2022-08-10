@@ -50,4 +50,8 @@ export class DinamicosComponent implements OnInit {
     this.miFormulario.reset();
   }
 
+  borrar(index: number){
+    this.favoritosArr.removeAt(index)
+
+  }
 }
