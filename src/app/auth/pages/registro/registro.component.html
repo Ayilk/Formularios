@@ -76,9 +76,18 @@
                            formControlName="password2"
                            placeholder="Confirmar la contraseña">
                     <span class="form-text text-danger"
-                           *ngIf="campoNoValido('password2')">
+                           *ngIf="emailRequired()">
                          Las contraseñas deben de ser iguales
-                    </span>   
+                    </span> 
+                    <span class="form-text text-danger"
+                           *ngIf="emailFromato()">
+                         El valor ingresado no tiene formato de correo
+                    </span> 
+                    <span class="form-text text-danger"
+                           *ngIf="emailTomado()">
+                         El correo electrónico ya fue tomado
+                    </span> 
+                      
                     
                 </div>
             </div>

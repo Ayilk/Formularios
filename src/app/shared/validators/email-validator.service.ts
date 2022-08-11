@@ -9,16 +9,15 @@ import { map, delay } from 'rxjs/operators';
 })
 export class EmailValidatorService implements AsyncValidator{
 
-
-
   constructor(private http: HttpClient) { }
 
-  validate(control: AbstractControl<any, any>): Observable<ValidationErrors | null> {
+  validate( control: AbstractControl ): Observable<ValidationErrors | null> {
+
     const email = control.value
     console.log(email)
     return this.http.get<any[]>(`http://localhost:3000/usuarios?q=${ email }`)
             .pipe(
-              delay(3000),
+              //delay(3000),
               map(resp => {
                 //estoy tomando el valor del observable y lo estoy transformando en esto
                 return(resp.length === 0)? null :{emailTomado: true}
