@@ -30,7 +30,7 @@
                            placeholder="Email del usuario">
                     <span class="form-text text-danger"
                            *ngIf="campoNoValido('email')">
-                         El correo es obligatorio
+                         {{emailErrorMsg}}
                     </span>
                 </div>
             </div>
@@ -76,18 +76,9 @@
                            formControlName="password2"
                            placeholder="Confirmar la contraseña">
                     <span class="form-text text-danger"
-                           *ngIf="emailRequired()">
+                           *ngIf="campoNoValido('password2')">
                          Las contraseñas deben de ser iguales
-                    </span> 
-                    <span class="form-text text-danger"
-                           *ngIf="emailFromato()">
-                         El valor ingresado no tiene formato de correo
-                    </span> 
-                    <span class="form-text text-danger"
-                           *ngIf="emailTomado()">
-                         El correo electrónico ya fue tomado
-                    </span> 
-                      
+                    </span>   
                     
                 </div>
             </div>
