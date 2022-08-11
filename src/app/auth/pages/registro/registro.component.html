@@ -86,6 +86,7 @@
             <div class="row">
                 <div class="col">
                     <button class="btn btn-primary float-end"
+                            [disabled]="miFormulario.pending"
                             type="submit">
                         Crear
                     </button>
@@ -96,7 +97,16 @@
     </div>
 </div>
 
-<h2>From Valid: {{miFormulario.valid}}</h2>
+<h2>Form Valid: {{miFormulario.valid}}</h2>
+
+<pre>Hay tres estados del formulario: </pre>
+<ul>
+    <li>Válido</li>
+    <li>No Válido</li>
+    <li>Pendiente de validación</li>
+</ul>
+<h2>Form Status: {{miFormulario.status}}</h2>
+<h2>Form Pending: {{miFormulario.status}}</h2>
 <h2>Form errors:</h2>
 <pre>{{miFormulario.errors}}</pre>
 
