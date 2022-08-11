@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { FormControl, ValidationErrors } from '@angular/forms';
+import { AbstractControl, FormControl, ValidationErrors } from '@angular/forms';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,24 @@ export class ValidatorsService {
     }
     //Si regresamos null significa que todo salió bien
     return null
+  }
 
+  camposIguales(campo1: string, campo2: string){
+      return (formGroup: AbstractControl): ValidationErrors | null => {
+        //console.log(formGroup)
+
+        const pass1 = formGroup.get(campo1)?.value;
+        const pass2 = formGroup.get(campo2)?.value;
+
+        console.log(pass1, pass2)
+
+        if(pass1 !== pass2){
+          formGroup.get(campo2)?.setErrors({noIguales: true});
+          return {noIguales : true}
+        }
+
+        formGroup.get(campo2)?.setErrors(null)
+        return null
+      }
   }
 }
